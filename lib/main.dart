@@ -1,13 +1,27 @@
+import 'package:cat_tinder/controllers/animal_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
 import 'signin.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:cat_tinder/services/firebase_storage_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+   try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {
+    if (e is! FirebaseException || (e as FirebaseException).code != 'duplicate-app') {
+      rethrow; // If the error is not a duplicate app error, then we throw it again.
+    }
+    // Else, it's a duplicate app error, which means Firebase has already been initialized, so we can safely ignore it.
+  }
+
+  // Now that Firebase has been initialized, it's safe to register Firebase services with GetX
+  Get.put(FirebaseStorageService());
+  Get.put(AnimalController());
   runApp(const MyApp());
 }
 

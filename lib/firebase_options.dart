@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '37415732660',
     projectId: 'purrfectmatch-ef1b7',
     authDomain: 'purrfectmatch-ef1b7.firebaseapp.com',
+    databaseURL: 'https://purrfectmatch-ef1b7-default-rtdb.firebaseio.com',
     storageBucket: 'purrfectmatch-ef1b7.appspot.com',
     measurementId: 'G-6Q77TQ3L24',
   );
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:37415732660:android:a1940b68a213721e629ee1',
     messagingSenderId: '37415732660',
     projectId: 'purrfectmatch-ef1b7',
+    databaseURL: 'https://purrfectmatch-ef1b7-default-rtdb.firebaseio.com',
     storageBucket: 'purrfectmatch-ef1b7.appspot.com',
   );
 
@@ -66,6 +68,7 @@ class DefaultFirebaseOptions {
     appId: '1:37415732660:ios:fe12647c8eb908ba629ee1',
     messagingSenderId: '37415732660',
     projectId: 'purrfectmatch-ef1b7',
+    databaseURL: 'https://purrfectmatch-ef1b7-default-rtdb.firebaseio.com',
     storageBucket: 'purrfectmatch-ef1b7.appspot.com',
     iosBundleId: 'com.example.catTinder',
   );
@@ -75,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:37415732660:ios:2e76ee521963f09f629ee1',
     messagingSenderId: '37415732660',
     projectId: 'purrfectmatch-ef1b7',
+    databaseURL: 'https://purrfectmatch-ef1b7-default-rtdb.firebaseio.com',
     storageBucket: 'purrfectmatch-ef1b7.appspot.com',
     iosBundleId: 'com.example.catTinder.RunnerTests',
   );
