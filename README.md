@@ -1,6 +1,13 @@
-# cat_tinder
+# purrfect match
 
-A new Flutter project.
+## Development Start
+`brew tap dart-lang/dart`
+`brew install dart`
+
+Install the VSCode Extension for Flutter, and open Command Palette `COMMAND+SHIFT+P` and run `Flutter: New Project`.
+Install Flutter SDK in your root directory, and add to path.
+
+`flutter pub get` is the equivalent of `npm i/yarn install`. 
 
 ## Getting Started
 
