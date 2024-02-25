@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "37415732660",
+    "project_id": "purrfectmatch-ef1b7",
+    "storage_bucket": "purrfectmatch-ef1b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37415732660:android:a1940b68a213721e629ee1",
+        "android_client_info": {
+          "package_name": "com.example.cat_tinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBhXDDndC9X_uo3onHDkBIgly5-00jLpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

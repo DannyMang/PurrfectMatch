@@ -52,7 +52,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: const Icon(Icons.lock),
                 ),
                 obscureText: true,
               ),
@@ -62,7 +62,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   // Add your sign-in validation logic here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoggedInScreen()),
+                    MaterialPageRoute(builder: (context) => const LoggedInScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -83,12 +83,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   // Add your sign-in validation logic here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => RegisterScreen()),
+                    MaterialPageRoute(builder: (context) => const RegisterScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  minimumSize: Size(double.infinity, 50), // double.infinity is the width and 50 is the height
+                  minimumSize: const Size(double.infinity, 50), // double.infinity is the width and 50 is the height
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),

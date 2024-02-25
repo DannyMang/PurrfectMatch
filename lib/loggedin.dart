@@ -2,11 +2,13 @@
 import 'package:flutter/material.dart';
 
 class LoggedInScreen extends StatelessWidget {
+  const LoggedInScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Logged In'),
+        title: const Text('Logged In'),
         centerTitle: true,
       ),
       body: const Center(
