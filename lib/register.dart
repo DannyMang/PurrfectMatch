@@ -19,6 +19,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         title: Text('Register'),
         centerTitle: true,
+        leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () => Navigator.of(context).pop(),
+  ),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(24),

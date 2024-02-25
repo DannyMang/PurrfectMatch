@@ -53,7 +53,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ElevatedButton(
                 onPressed: () {
                   // Add your sign-in validation logic here
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => LoggedInScreen()),
                   );
@@ -74,7 +74,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ElevatedButton(
                 onPressed: () {
                   // Add your sign-in validation logic here
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => RegisterScreen()),
                   );
