@@ -24,7 +24,14 @@ class _SignInScreenState extends State<SignInScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const FlutterLogo(size: 100),
+              Image.asset('assets/images/cat.png'),
+              const Text(
+                'polyglot',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(height: 40),
               TextField(
                 controller: _emailController,

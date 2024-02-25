@@ -9,7 +9,7 @@ class LoggedInScreen extends StatelessWidget {
         title: Text('Logged In'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'You are logged in!',
           style: TextStyle(
