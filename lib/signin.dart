@@ -1,8 +1,13 @@
 // signin.dart
+import 'package:cat_tinder/loggedin.dart';
 import 'package:flutter/material.dart';
+import 'package:cat_tinder/register.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SignInScreenState createState() => _SignInScreenState();
 }
 
@@ -15,12 +20,12 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(size: 100),
-              SizedBox(height: 40),
+              const FlutterLogo(size: 100),
+              const SizedBox(height: 40),
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
@@ -28,11 +33,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: const Icon(Icons.email),
                 ),
                 keyboardType: TextInputType.emailAddress,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
                 decoration: InputDecoration(
@@ -44,15 +49,18 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 obscureText: true,
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  // Add your sign-in functionality here
-                  print('Email: ${_emailController.text}, Password: ${_passwordController.text}');
+                  // Add your sign-in validation logic here
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoggedInScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  minimumSize: Size(double.infinity, 50), // double.infinity is the width and 50 is the height
+                  minimumSize: const Size(double.infinity, 50), // double.infinity is the width and 50 is the height
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -62,11 +70,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   style: TextStyle(color: Colors.black),
                   ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Add your sign-in functionality here
-                  print('Email: ${_emailController.text}, Password: ${_passwordController.text}');
+                  // Add your sign-in validation logic here
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
