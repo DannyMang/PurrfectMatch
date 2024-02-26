@@ -1,4 +1,6 @@
-// signin.dart
+// lib/signin.dart
+import 'dart:async';
+import 'dart:math' as math;
 import 'package:cat_tinder/loggedin.dart';
 import 'package:flutter/material.dart';
 import 'package:cat_tinder/register.dart';
@@ -11,9 +13,33 @@ class SignInScreen extends StatefulWidget {
   _SignInScreenState createState() => _SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends State<SignInScreen>
+    with SingleTickerProviderStateMixin {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  late AnimationController _animationController;
+  late Animation<double> _shakeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _shakeAnimation =
+        Tween<double>(begin: 0, end: 10).animate(_animationController)
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              _animationController.reverse();
+            } else if (status == AnimationStatus.dismissed) {
+              _animationController.forward();
+            }
+          });
+    Timer.periodic(const Duration(seconds: 2), (Timer timer) {
+      _animationController.forward();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +50,24 @@ class _SignInScreenState extends State<SignInScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/cat.png'),
+              AnimatedBuilder(
+                animation: _shakeAnimation,
+                child: Image.asset(
+                  'assets/images/cat.png',
+                  width: 100, // Adjust the size to make the logo smaller
+                ),
+                builder: (context, child) {
+                  final double sinValue =
+                      math.sin(_animationController.value * math.pi * 10);
+                  return Transform.translate(
+                    offset: Offset(
+                      _shakeAnimation.value * sinValue, // Diagonal X-axis shake
+                      _shakeAnimation.value * sinValue, // Diagonal Y-axis shake
+                    ),
+                    child: child,
+                  );
+                },
+              ),
               const Text(
                 'purrfect pairing',
                 style: TextStyle(
