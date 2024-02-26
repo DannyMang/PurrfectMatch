@@ -1,3 +1,4 @@
+// lib/add_screen.dart
 import 'package:flutter/material.dart';
 
 class AdminPanelScreen extends StatefulWidget {
@@ -9,8 +10,13 @@ class AdminPanelScreen extends StatefulWidget {
 
 class AdminPanelScreenState extends State<AdminPanelScreen> {
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _breedController = TextEditingController();
+  final TextEditingController _coatTypeController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _genderController = TextEditingController();
   final TextEditingController _bondedWithController = TextEditingController();
   final TextEditingController _neuteredWhenController = TextEditingController();
+  final TextEditingController _blobTextController = TextEditingController();
 
   bool _isBonded = false;
   bool _isNeutered = false;
@@ -26,6 +32,7 @@ class AdminPanelScreenState extends State<AdminPanelScreen> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'Name',
@@ -38,9 +45,7 @@ class AdminPanelScreenState extends State<AdminPanelScreen> {
               controller: _nameController,
               decoration: const InputDecoration(
                 hintText: 'Enter name',
-                border: InputBorder.none, // Removes default underline border
-                contentPadding: EdgeInsets.symmetric(
-                    vertical: 10), // Adjusts vertical padding
+                border: InputBorder.none,
               ),
               style: const TextStyle(
                 fontSize: 16,
@@ -69,41 +74,45 @@ class AdminPanelScreenState extends State<AdminPanelScreen> {
                       ),
                     );
                   },
-                  body: const Column(
+                  body: Column(
                     children: [
                       TextField(
-                        decoration: InputDecoration(
+                        controller: _breedController,
+                        decoration: const InputDecoration(
                           hintText: 'Breed',
                           border: InputBorder.none,
                         ),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                         ),
                       ),
                       TextField(
-                        decoration: InputDecoration(
+                        controller: _coatTypeController,
+                        decoration: const InputDecoration(
                           hintText: 'Coat Type',
                           border: InputBorder.none,
                         ),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                         ),
                       ),
                       TextField(
-                        decoration: InputDecoration(
+                        controller: _ageController,
+                        decoration: const InputDecoration(
                           hintText: 'Age',
                           border: InputBorder.none,
                         ),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                         ),
                       ),
                       TextField(
-                        decoration: InputDecoration(
+                        controller: _genderController,
+                        decoration: const InputDecoration(
                           hintText: 'Gender',
                           border: InputBorder.none,
                         ),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                         ),
                       ),
@@ -138,14 +147,14 @@ class AdminPanelScreenState extends State<AdminPanelScreen> {
                           ? TextField(
                               controller: _bondedWithController,
                               decoration: const InputDecoration(
-                                hintText: 'With who is this cat bonded with?',
+                                hintText: 'With who (separated by commas)',
                                 border: InputBorder.none,
                               ),
                               style: const TextStyle(
                                 fontSize: 16,
                               ),
                             )
-                          : const SizedBox(), // Use SizedBox for an empty box
+                          : const SizedBox(), // Use SizedBox for an empty box if not bonded
                       SwitchListTile(
                         title: const Text('Neutered'),
                         value: _isNeutered,
@@ -159,7 +168,7 @@ class AdminPanelScreenState extends State<AdminPanelScreen> {
                           ? TextField(
                               controller: _neuteredWhenController,
                               decoration: const InputDecoration(
-                                hintText: 'When was this cat neutered?',
+                                hintText: 'When (date)',
                                 border: InputBorder.none,
                               ),
                               keyboardType: TextInputType.number,
@@ -167,12 +176,36 @@ class AdminPanelScreenState extends State<AdminPanelScreen> {
                                 fontSize: 16,
                               ),
                             )
-                          : const SizedBox(), // Use SizedBox for an empty box
+                          : const SizedBox(), // Use SizedBox for an empty box if not neutered
                     ],
                   ),
                   isExpanded: _detailsExpanded,
                 ),
               ],
+            ),
+            const Divider(
+              height: 50, // Provides spacing above and below the divider
+              thickness: 2, // Thickness of the line
+            ),
+            const Text(
+              'Or copy and paste a big description of them and we\'ll handle it from there',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
+            ),
+            TextField(
+              controller: _blobTextController,
+              decoration: const InputDecoration(
+                hintText: 'Paste your text here',
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.symmetric(
+                    vertical: 10), // Adjusts vertical padding
+              ),
+              style: const TextStyle(
+                fontSize: 16,
+              ),
+              maxLines: null, // Allows the text field to expand vertically
             ),
           ],
         ),
