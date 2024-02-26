@@ -188,7 +188,7 @@ class AdminPanelScreenState extends State<AdminPanelScreen> {
               thickness: 2, // Thickness of the line
             ),
             const Text(
-              'Or copy and paste a big description of them and we\'ll handle it from there',
+              '..or paste a big description of the cute fella and we\'ll handle it from there',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,

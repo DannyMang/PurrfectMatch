@@ -30,8 +30,15 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
                 );
               },
               itemCount: controller.allAnimalImages.length,
-              pagination: const SwiperPagination(),
-              control: const SwiperControl(),
+              layout: SwiperLayout.STACK,
+              itemWidth: MediaQuery.of(context).size.width *
+                  0.8, // 80% of screen width
+              itemHeight: MediaQuery.of(context).size.height *
+                  0.6, // 60% of screen height
+              // Remove pagination or set to SwiperPagination.none
+              pagination: null, // This effectively removes the pagination dots
+              control:
+                  const SwiperControl(), // Keep this if you want the arrows, otherwise remove it
             )),
         const Center(
             child: Text('Another Tab Content')), // Placeholder for other tabs
