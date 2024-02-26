@@ -4,8 +4,7 @@ class ChatBubble extends StatelessWidget {
   final String message;
   final bool isMe;
 
-  const ChatBubble(String s, bool bool,
-      {super.key, required this.message, required this.isMe});
+  const ChatBubble({super.key, required this.message, required this.isMe});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +23,34 @@ class ChatBubble extends StatelessWidget {
             color: isMe ? Colors.white : Colors.black,
             fontSize: 16.0,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ChatPage extends StatelessWidget {
+  const ChatPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Chat Example'),
+        backgroundColor: Colors.black, // Hinge-like theme
+      ),
+      body: Container(
+        color: Colors.white, // Background color for the chat
+        child: ListView(
+          padding: const EdgeInsets.all(8.0),
+          children: const [
+            ChatBubble(message: "Hi there!", isMe: false),
+            ChatBubble(
+              message: "how r u",
+              isMe: true,
+            ),
+            ChatBubble(message: "im chill gng", isMe: true),
+          ],
         ),
       ),
     );
