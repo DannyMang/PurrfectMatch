@@ -37,7 +37,7 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Chat Example'),
-        backgroundColor: Colors.black, // Hinge-like theme
+        backgroundColor: Colors.white, // Hinge-like theme
       ),
       body: Container(
         color: Colors.white, // Background color for the chat

@@ -32,7 +32,8 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(controller.allAnimalImages[index]),
+                            image:
+                                NetworkImage(controller.allAnimalImages[index]),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -47,7 +48,9 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Cat Details', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                            Text('Cat Details',
+                                style: TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.bold)),
                             // Include more details here
                             SizedBox(height: 20),
                             ElevatedButton(
@@ -66,7 +69,8 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
                   itemWidth: MediaQuery.of(context).size.width * 0.8,
                   itemHeight: MediaQuery.of(context).size.height * 0.6,
                 ),
-                Positioned( // Adjust position to move buttons up
+                Positioned(
+                  // Adjust position to move buttons up
                   bottom: MediaQuery.of(context).size.height * 0.15,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -74,13 +78,15 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
                       FloatingActionButton(
                         heroTag: "btn1",
                         backgroundColor: Colors.white,
-                        child: const Icon(Icons.close, color: Colors.red, size: 36),
+                        child: const Icon(Icons.close,
+                            color: Colors.red, size: 36),
                         onPressed: () => swiperController.next(),
                       ),
                       FloatingActionButton(
                         heroTag: "btn2",
                         backgroundColor: Colors.white,
-                        child: const Icon(Icons.check_circle, color: Colors.green, size: 36),
+                        child: const Icon(Icons.check_circle,
+                            color: Colors.green, size: 36),
                         onPressed: () => swiperController.next(),
                       ),
                     ],
@@ -91,11 +97,45 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
         const Center(child: Text('Another Tab Content')),
       ];
 
+  int _navigationIndex = 0;
+
+  void _onNavigationTapped(int index) {
+    switch (index) {
+      case 0:
+        if (_navigationIndex == 0) {
+          break;
+        }
+        const LoggedInScreen();
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoggedInScreen()));
+        _navigationIndex = index;
+      case 1:
+        if (_navigationIndex == 1) {
+          break;
+        }
+        const ChatBubble(message: "hello", isMe: false);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    const ChatBubble(message: "hello", isMe: false)));
+        _navigationIndex = index;
+      case 2:
+        if (_navigationIndex == 2) {
+          break;
+        }
+        const AdminPanelScreen();
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const AdminPanelScreen()));
+        _navigationIndex = index;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Purrfect Match!'),
+        title: const Text('purrfect match!'),
         centerTitle: true,
       ),
       body: Center(
@@ -103,12 +143,19 @@ class _LoggedInScreenState extends State<LoggedInScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.heart), label: 'Likes'),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.settings), label: 'Settings'),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.home),
+            label: 'home',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.heart), label: 'likes'),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.settings),
+            label: 'admin',
+          ),
         ],
-        currentIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
+        currentIndex: _navigationIndex,
+        onTap: _onNavigationTapped,
       ),
     );
   }
