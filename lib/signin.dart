@@ -26,7 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
             children: [
               Image.asset('assets/images/cat.png'),
               const Text(
-                'polyglot',
+                'purrfect pairing',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -62,12 +62,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   // Add your sign-in validation logic here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoggedInScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const LoggedInScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  minimumSize: const Size(double.infinity, 50), // double.infinity is the width and 50 is the height
+                  backgroundColor: Colors.white,
+                  minimumSize: const Size(double.infinity,
+                      50), // double.infinity is the width and 50 is the height
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -75,7 +77,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: const Text(
                   'Sign In',
                   style: TextStyle(color: Colors.black),
-                  ),
+                ),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -83,12 +85,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   // Add your sign-in validation logic here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  minimumSize: const Size(double.infinity, 50), // double.infinity is the width and 50 is the height
+                  backgroundColor: Colors.white,
+                  minimumSize: const Size(double.infinity,
+                      50), // double.infinity is the width and 50 is the height
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -96,7 +100,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: const Text(
                   'Register',
                   style: TextStyle(color: Colors.black),
-                  ),
+                ),
               ),
             ],
           ),
