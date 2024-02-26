@@ -84,6 +84,13 @@ class _SignInScreenState extends State<SignInScreen>
                     // Adds underline
                     borderSide: BorderSide(color: Colors.grey),
                   ),
+                  focusedBorder: UnderlineInputBorder(
+                    // Keeps underline while typing
+                    borderSide: BorderSide(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary), // Or any color you prefer
+                  ),
                 ),
                 keyboardType: TextInputType.emailAddress,
               ),
@@ -97,6 +104,13 @@ class _SignInScreenState extends State<SignInScreen>
                   enabledBorder: UnderlineInputBorder(
                     // Adds underline
                     borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    // Keeps underline while typing
+                    borderSide: BorderSide(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary), // Or any color you prefer
                   ),
                 ),
                 obscureText: true,
@@ -119,7 +133,7 @@ class _SignInScreenState extends State<SignInScreen>
                   ),
                 ),
                 child: const Text(
-                  'Sign In',
+                  'sign in ~',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
@@ -141,7 +155,7 @@ class _SignInScreenState extends State<SignInScreen>
                   ),
                 ),
                 child: const Text(
-                  'Register',
+                  'register with us!',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
