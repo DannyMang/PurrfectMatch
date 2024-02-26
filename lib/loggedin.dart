@@ -17,10 +17,6 @@ class _LoggedInScreenState extends State<LoggedInScreen>
     with SingleTickerProviderStateMixin {
   final SwiperController swiperController =
       SwiperController(); // Correct declaration
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  late AnimationController _animationController;
-  late Animation<double> _shakeAnimation;
   // Index for the current selected tab
   int _selectedIndex = 0;
 
@@ -50,14 +46,14 @@ class _LoggedInScreenState extends State<LoggedInScreen>
                   children: [
                     FloatingActionButton(
                       backgroundColor: Colors.white,
-                      child: Icon(Icons.close, size: 36),
+                      child: const Icon(Icons.close, size: 36),
                       onPressed: () {
                         swiperController.next(); // Correct usage
                       },
                     ),
                     FloatingActionButton(
                       backgroundColor: Colors.white,
-                      child: Icon(Icons.check_circle, size: 36),
+                      child: const Icon(Icons.check_circle, size: 36),
                       onPressed: () {
                         swiperController.next(); // Correct usage
                       },
