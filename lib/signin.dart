@@ -1,15 +1,13 @@
-// lib/signin.dart
 import 'dart:async';
 import 'dart:math' as math;
-import 'package:cat_tinder/loggedin.dart';
 import 'package:flutter/material.dart';
+import 'package:cat_tinder/loggedin.dart';
 import 'package:cat_tinder/register.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SignInScreenState createState() => _SignInScreenState();
 }
 
@@ -79,11 +77,13 @@ class _SignInScreenState extends State<SignInScreen>
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
-                  hintText: 'Email',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  hintText: '', // Removed text
+                  border: InputBorder.none, // Removes border
                   prefixIcon: const Icon(Icons.email),
+                  enabledBorder: UnderlineInputBorder(
+                    // Adds underline
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
                 ),
                 keyboardType: TextInputType.emailAddress,
               ),
@@ -91,11 +91,13 @@ class _SignInScreenState extends State<SignInScreen>
               TextField(
                 controller: _passwordController,
                 decoration: InputDecoration(
-                  hintText: 'Password',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  hintText: '', // Removed text
+                  border: InputBorder.none, // Removes border
                   prefixIcon: const Icon(Icons.lock),
+                  enabledBorder: UnderlineInputBorder(
+                    // Adds underline
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
                 ),
                 obscureText: true,
               ),
@@ -111,8 +113,7 @@ class _SignInScreenState extends State<SignInScreen>
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity,
-                      50), // double.infinity is the width and 50 is the height
+                  minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -134,8 +135,7 @@ class _SignInScreenState extends State<SignInScreen>
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity,
-                      50), // double.infinity is the width and 50 is the height
+                  minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
